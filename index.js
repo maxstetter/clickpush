@@ -2,6 +2,10 @@ import express from 'express';
 const app = express();
 const port = process.env.PORT
 
+const server = app.listen(port, () => {
+    console.log(`clickpush listening at: ${port}`)
+})
+
 import { WebSocketServer } from 'ws';
 const wss = new WebSocketServer({ server })
 
@@ -68,7 +72,3 @@ wss.on('connection', function (client) {
         });
     });
 });
-
-app.listen(port, () => {
-    console.log(`clickpush listening at: ${port}`)
-})
