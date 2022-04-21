@@ -6,6 +6,7 @@ const server = app.listen(port, () => {
     console.log(`clickpush listening at: ${port}`)
 })
 
+app.use(express.static('public'));
 import { WebSocketServer } from 'ws';
 const wss = new WebSocketServer({ server })
 
