@@ -1,4 +1,4 @@
-const express = require('express')
+import { express } from 'express';
 const app = express();
 const port = process.env.PORT
 
@@ -9,7 +9,6 @@ var player1 = null;
 var player2 = null;
 var rope = 50;
 var CLIENTS = [];
-var winner = "";
 
 wss.on('connection', function connection(ws) {
     if(player1 == null){
