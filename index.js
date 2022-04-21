@@ -68,8 +68,8 @@ wss.on('connection', function (client) {
             }
         }
         wss.clients.forEach(function each(client){
-            client.send(JSON.stringify(roper), {isBinary:false});
-            client.send(JSON.stringify(winner), {isBinary:false});
+            client.send(JSON.stringify(roper));
+            client.send(JSON.stringify(winner));
         });
     });
 });

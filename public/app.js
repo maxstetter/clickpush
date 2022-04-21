@@ -11,7 +11,7 @@ var app = new Vue({
 		this.socket.onmessage = (event) => {
 			console.log("socket.onmessage worked.");
       console.log("this is the message: " + event.data);
-			var message = JSON.parse(event.data);
+			var message = JSON.parse(event);
 			this.rope = message.rope;
       this.winner = message.winner;
 		};
