@@ -18,20 +18,20 @@ var CLIENTS = [];
 wss.on('connection', function connection(ws) {
     if(player1 == null){
         player1 = ws;
-        ws.send(JSON.stringify("you are Player 1"));
+        //ws.send(JSON.stringify("you are Player 1"));
         player1.on('close', function () {
         player1 = null;
         CLIENTS.push(ws);
     })
     } else if (player2 == null) {
         player2 = ws;
-        ws.send(JSON.stringify("you are Player 2"));
+        //ws.send(JSON.stringify("you are Player 2"));
         player2.on('close', function () {
         player2 = null;
         CLIENTS.push(ws);
     })
     } else {
-        ws.send(JSON.stringify("there are already 2 players."));
+        //ws.send(JSON.stringify("there are already 2 players."));
         CLIENTS.push(ws);
     }
 });
