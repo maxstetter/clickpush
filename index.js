@@ -1,23 +1,15 @@
-//import { client } from 'websocket';
-//import WebSocket from 'ws';
-//const WebSocketServer = require('ws');
+const express = require('express')
+const app = express();
+const port = process.env.PORT
+
 import { WebSocketServer } from 'ws';
-const wss = new WebSocketServer({ port: 8080 })
+const wss = new WebSocketServer({ server })
 
 var player1 = null;
 var player2 = null;
 var rope = 50;
 var CLIENTS = [];
 var winner = "";
-
-function sendAll(){
-    console.log("sendAll called.");
-    for (var i=0; i < CLIENTS.length; i++){
-        var roper = {rope: rope};
-        var message = {rope: rope, winner: winner}
-        CLIENTS[i].send()
-    }
-}
 
 wss.on('connection', function connection(ws) {
     if(player1 == null){
@@ -77,3 +69,7 @@ wss.on('connection', function (client) {
         });
     });
 });
+
+app.listen(port, () => {
+    console.log(`clickpush listening at: ${port}`)
+})

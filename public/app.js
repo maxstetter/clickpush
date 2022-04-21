@@ -6,7 +6,7 @@ var app = new Vue({
   },
   methods: {
 	  connectSocket: function () {
-		this.socket = new WebSocket("ws://localhost:8080");
+		this.socket = new WebSocket("ws://clickpush.herokuapp.com/");
 		//on message send data.
 		this.socket.onmessage = (event) => {
 			console.log("socket.onmessage worked.");
