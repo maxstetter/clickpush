@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="game">
+        <h1>Pusher</h1>
+        <div class="red">
+            <b v-if="winner === 'red'">RED WINS</b>
+            <div class="blue" v-bind:style="{ width: rope + '%' }">
+                <b v-if="winner === 'blue'">BLUE WINS</b>
+            </div>
+        </div>
+        <div id="bottom">
+            <button id="blueButton" @click="click('blue')">click</button>
+            <button id="redButton" @click="click('red')">click</button>
+            <div class="resetDiv" v-if="winner === 'red'">
+                <button id="resetButton" @click="reset">reset</button>
+            </div>
+            <div class="resetDiv" v-if="winner === 'blue'">
+                <button id="resetButton" @click="reset">reset</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
